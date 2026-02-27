@@ -1,5 +1,5 @@
 package searching;
-
+//ceiling of number......
 // practice question
 /* public class BSQus{
     public static void main(String[] args) {

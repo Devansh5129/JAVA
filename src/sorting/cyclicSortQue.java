@@ -14,10 +14,10 @@ public class cyclicSortQue {
             if (nums[i] != nums[correct]) {
                 swap(nums, i, correct);
             } else {
-                i++;
+                i++; //must
             }
         }
-        // just find missing numbers
+        // just find missing numbers-- jo miss hua h wo list me add ho jayegaa...
         List<Integer> ans = new ArrayList<>();
         for (int index = 0; index < nums.length; index++) {
             if (nums[index] != index + 1) {
