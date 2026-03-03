@@ -4,10 +4,12 @@ public class quickRecursion {
     public static void main(String[] args) {
         int[] arr = {5, 4, 3, 2, 1};
         Arrays.sort(arr);
+
     }
     static void sort(int[] nums, int low, int hi) {
         if (low >= hi) {
-            return;}
+            return;
+        }
 // 4 variable rahege
         int s = low;
         int e = hi;
@@ -37,4 +39,5 @@ public class quickRecursion {
         sort(nums, low, e);
         sort(nums, s, hi);
     }
+
 }
