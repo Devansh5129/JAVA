@@ -1,5 +1,7 @@
+
+//rest same code, only considering the maze [r][c] is false and last returning as true
 import java.util.Arrays;
-public class allpaths{
+public class AllPathsMaze {
     public static void main(String[] args) {
         boolean[][] board = {
                 {true, true, true},

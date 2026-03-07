@@ -17,7 +17,7 @@ public class maze {
         };
         pathRestrictions("", board, 0, 0);
     }
-
+// basic maze ka sawal ...
     static int count(int r, int c) {
         if (r == 1 || c == 1) {
             return 1;
