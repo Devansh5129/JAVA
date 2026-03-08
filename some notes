@@ -1,0 +1,5 @@
+que--why backtracking is done and needed?
+ans-- Because recursion shares the same data structures (arrays, lists, matrices).
+If we don't undo the changes, future recursive calls will see incorrect data.
+So we must restore the state before returning.
+or in simpler words , the object we had created is shared among all recusion calls so to make it new for every call , backtracking concept is done where
