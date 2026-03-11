@@ -1,0 +1,76 @@
+note 1 ...
+que--why backtracking is done and needed?
+ans-- Because recursion shares the same data structures (arrays, lists, matrices).
+If we don't undo the changes, future recursive calls will see incorrect data.
+So we must restore the state before returning.
+or in simpler words , the object we had created is shared among all recusion calls so to make it new for every call , backtracking concept is done where
+
+note 2...
+-Array just holds data ,Stack controls how data is used...
+-Queue Does Not Allow Random Access
+-You can only work with:
+front element
+rear element
+Typical operations:
+add() / offer() → insert at rear
+remove() / poll() → remove from front
+peek() → view front
+
+-3️⃣ Cannot Insert Anywhere
+In structures like ArrayList, you can insert anywhere.
+Example:
+list.add(2, 50);
+
+-5️⃣ Interface Cannot Be Instantiated
+Because Queue is an interface, you cannot do:
+Queue q = new Queue();   ❌
+You must use an implementation:
+Queue<Integer> q = new LinkedList<>();
+
+- Deque allows both sides:
+Front  ←→  Rear
+Insert      Insert
+Remove      Remove
+
+-import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Deque<Integer> dq = new ArrayDeque<>();
+        dq.addFirst(10);
+        dq.addLast(20);
+        dq.addFirst(5);
+        System.out.println(dq);
+        dq.removeLast();
+        System.out.println(dq);
+    }
+}
+
+-minStackQuestion
+-In Min Stack, the goal is to support `push`, `pop`, `top`, and `getMin` in O(1) time. We solve it using two stacks.
+The main stack stores all values normally. The min stack keeps track of the minimum values seen so far.
+When pushing a value, also push it to the min stack if it is smaller than or equal to the current minimum.
+When popping, if the popped value equals the top of the min stack, remove it from the min stack too. 
+The top of the min stack always gives the current minimum instantly.(full on chtgpt @shukla.....com-java masterclass)
+
+-Problem with Normal Queue (Array Implementation)
+Suppose queue size = 5
+Initial queue:
+_ _ _ _ _
+Insert elements:
+10 20 30 40 50
+Now:
+Front = 0
+Rear = 4
+If we remove two elements:
+_ _ 30 40 50
+But rear is still at index 4, so we cannot insert new elements even though space exists at the beginning.
+This causes wasted space.
+Condition for Full Queue:-
+Queue is full when:
+(rear + 1) % size == front
+Example:
+size = 5
+rear = 4
+(4 + 1) % 5 = 0
+
+-
