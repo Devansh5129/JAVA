@@ -41,7 +41,7 @@ public class AllPathsMaze {
         maze[r][c] = true;
     }
 
-
+//ye bacha hai abhii
 
     static void allPathPrint(String p, boolean[][] maze, int r, int c, int[][] path, int step) {
         if (r == maze.length - 1 && c == maze[0].length - 1) {
