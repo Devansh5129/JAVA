@@ -1,0 +1,10 @@
+The **Game of Two Stacks** problem (commonly seen on **HackerRank**) asks us to remove the maximum number of elements from two stacks without 
+the total sum exceeding a given limit `x`. We can only remove elements from the **top** of each stack, so the order of elements cannot be changed. 
+The optimal approach avoids checking every possible combination and instead uses a **two-pointer (greedy) strategy**. 
+First, we remove elements from **stack A** one by one until adding the next element would exceed `x`. This gives an initial count.
+Then we start taking elements from **stack B**.
+Whenever adding an element from B causes the sum to exceed `x`, 
+we remove elements from A (moving the pointer backward) until the sum becomes valid again. After each adjustment,
+we update the maximum number of removed elements (`i + j`). Because each element of both stacks is visited at most once,
+the time complexity is **O(n + m)** where `n` and `m` are the sizes of the two stacks.
+This method is efficient and avoids the exponential time complexity of the recursive approach.
