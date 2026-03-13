@@ -1,0 +1,9 @@
+This solution for Plus One works by simulating how we normally add 1 to a number by hand.
+The digits of the number are stored in an array,
+so the algorithm starts from the last index (rightmost digit) because addition always begins from the least significant digit.
+It increases that digit by 1 and then uses % 10 to handle the carry.
+If the digit becomes less than 10 after incrementing, the addition is complete and the updated array is returned immediately.
+However, if the digit was 9, adding 1 makes it 10, so % 10 turns it into 0 and the carry moves to the next digit on the left.
+The loop continues propagating this carry until a digit does not produce a carry. If all digits were 9 (for example [9,9,9]),
+every digit becomes 0, meaning the number has increased in length (999 → 1000). In that case, the algorithm creates a new array of size n+1,
+sets the first element to 1, and leaves the rest as 0.
