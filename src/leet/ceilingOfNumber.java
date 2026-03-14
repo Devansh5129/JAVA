@@ -7,9 +7,11 @@ public class ceilingOfNumber {
         System.out.println(ans);
     }
     static int ceiling(int[] arr, int target) {
-        if (target > arr[arr.length - 1]) {
-            return -1;
-        }
+        // jo sawal leetcode me hai usme -1 , return nahi ho sakta but if we apply this if cond then it might return
+        // -1 , so this if condition is removed for the leet question...
+//        if (target > arr[arr.length - 1]) {
+//            return -1;
+//        }
         int start = 0;
         int end = arr.length - 1;
         while(start <= end) {
