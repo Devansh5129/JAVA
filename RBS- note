@@ -1,0 +1,11 @@
+In a **Rotated Binary Search (RBS)** problem like **Search in Rotated Sorted Array**,
+the array was originally sorted but then rotated at some pivot point, creating two separately sorted portions.
+The idea is first to **find the pivot**, which is the index of the largest element where the rotation occurs 
+(the point where `arr[i] > arr[i+1]`). If no pivot is found, the array was never rotated and a normal binary search can be applied on the entire array.
+If a pivot exists, the array effectively becomes two sorted subarrays: one from the start to the pivot and another from the pivot+1 to the end.
+Since binary search only works on sorted ranges, we decide which of these two halves could contain the target by comparing the target with 
+the first element of the array. Then we run a standard binary search on that half. This keeps the time complexity **O(log n)** 
+because both pivot finding and binary search operate logarithmically.
+
+
+this also must be solved with recursion on less functions ....
