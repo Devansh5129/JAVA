@@ -1,3 +1,4 @@
+//containing 3 question leet...
 package impQ;
 class Qduplicate {
     static void main(String[] args) {
