@@ -8,7 +8,7 @@ class rotateArray {
             result[i] = arr[i + 1];
         }
         // put first element at last
-        result[n - 1] = arr[0]
+        result[n - 1] = arr[0];
         return result;
     }
     public static void main(String[] args) {
