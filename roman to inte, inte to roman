@@ -1,0 +1,16 @@
+LeetCode 12 and LeetCode 13 are reverse problems that work on the same Roman numeral system but require opposite thinking approaches.
+In Roman to Integer (13), the task is to read a Roman numeral string and calculate its numeric value,
+so the main idea is to scan the string from left to right and compare each character with the next character to decide whether to add
+or subtract its value; if a smaller numeral appears before a larger numeral, it means subtraction (like IV = 4 or IX = 9),
+otherwise we add the value, which makes this problem a reading and comparison-based logic where we decode the Roman structure by 
+observing relationships between symbols. On the other hand, Integer to Roman (12) requires building a Roman numeral from a given number,
+so instead of comparing characters, we use a greedy approach where we always pick the largest possible Roman value that fits into the number
+and subtract it while adding its corresponding symbol to the result, repeating this process until the number becomes zero;
+this ensures that the Roman numeral is formed correctly in descending order (like 1994 → 1000 + 900 + 90 + 4 → MCMXCIV).
+The key difference is that problem 13 focuses on analyzing and interpreting the Roman numeral by checking symbol relationships,
+while problem 12 focuses on constructing the Roman numeral by repeatedly selecting the largest valid symbol,
+meaning one problem decodes the system and the other encodes the system. Both problems run in linear or constant time and rely on the 
+same Roman value mapping, but the mental model is different: Roman to Integer requires comparison and decision-making at each step, 
+while Integer to Roman requires greedy selection and subtraction at each step, so remembering this as “13 reads and calculates, 
+while 12 builds and subtracts” makes it easy to recall even after a long time.
+  
