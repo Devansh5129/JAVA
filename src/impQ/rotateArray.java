@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class rotateArray {
     // function to rotate array left by 1
     public static int[] rotateLeft(int[] arr) {
@@ -12,13 +14,22 @@ class rotateArray {
         return result;
     }
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3};
+        int[] arr = {1, 2, 3,4,5,6,7,8,9};
         // call function
         int[] rotated = rotateLeft(arr);
         // print result
         System.out.print("Rotated array: ");
         for (int i = 0; i < rotated.length; i++) {
             System.out.print(rotated[i] + " ");
+            System.out.println(Arrays.toString(rotatingfKSteps(arr,3)));
         }
+    }
+    public static int[] rotatingfKSteps(int [] arr , int k){
+        int n = arr.length;
+        int[] result = new int[n];
+        for( int i =0; i<n; i++){
+            result[i]=arr[(i+k)%n];
+        }
+        return result;
     }
 }
