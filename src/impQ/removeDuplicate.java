@@ -16,14 +16,14 @@ public class removeDuplicate {
        if(arr.length==0){
            return 0;
        }
-       int i =1;
-       for(int j=0; j<arr.length; j++){
-           if(arr[j] !=arr[i-1]){
+       int i =0;
+       for(int j=1; j<arr.length; j++){
+           if(arr[j] !=arr[i]){
                arr[i]=arr[j];
                i++;
            }
        }
-       return i;
+       return i+1;
 }
 //brute force ...
 private static int hatao2(int [] array){
