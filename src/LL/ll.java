@@ -32,6 +32,70 @@ public class ll {
         tail = node;
         size++;
     }
+    public void insert(int val, int index) {
+        if (index == 0) {
+            insertFirst(val);
+            return ;
+        }
+        if (index == size) {
+            insertLast(val);
+            return ;
+        }
+
+        Node temp = head;
+        for (int i = 1; i < index; i++) {
+            temp = temp.next;
+        }
+
+        Node node = new Node(val, temp.next);
+        temp.next = node;
+
+        size++;
+    }
+    public Node get(int index) {
+        Node node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node;
+    }
+
+    public int deleteFirst() {
+        int val = head.value;
+        head = head.next;
+        if (head == null) {
+            tail = null;
+        }
+        size--;
+        return val;
+    }
+
+    public int deleteLast() {
+        if (size <= 1) {
+            return deleteFirst();
+        }
+
+        Node secondLast = get(size - 2);
+        int val = tail.value;
+        tail = secondLast;
+        tail.next = null;
+        size--;
+        return val;
+    }
+    public int delete(int index){
+        if(index==0){
+            return deleteFirst();
+
+        }
+        Node prev = get (index-1);
+        int val = prev.next.value;
+        prev.next = prev.next.next;
+        size--;
+        return val;
+    }
+
+
+
 
 
     public void display(){
@@ -61,6 +125,10 @@ public class ll {
         list.insertFirst(9);
         list.insertFirst(1);
         list.insertLast(45);
+         list.insert(8,2);
+         list.delete(4);
+        System.out.println( "deleted value: " +list.delete(4));
+
         list.display();
 
     }
