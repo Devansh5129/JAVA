@@ -32,20 +32,16 @@ public class dll {
         }
         System.out.println("START");
     }
-
     public void insertLast(int val) {
         Node node = new Node(val);
         Node last = head;
-
         node.next = null;
-
-        if (head == null) {
+        if (head == null){
             node.prev = null;
             head = node;
             return;
         }
-
-        while (last.next != null) {
+        while(last.next != null) {
             last = last.next;
         }
 
@@ -66,12 +62,10 @@ public class dll {
 
     public void insert(int after, int val) {
         Node p = find(after);
-
         if (p == null) {
             System.out.println("does not exist");
             return;
         }
-
         Node node = new Node(val);
         node.next = p.next;
         p.next = node;
@@ -80,16 +74,13 @@ public class dll {
             node.next.prev = node;
         }
     }
-
     private class Node {
         int val;
         Node next;
         Node prev;
-
         public Node(int val) {
             this.val = val;
         }
-
         public Node(int val, Node next, Node prev) {
             this.val = val;
             this.next = next;
