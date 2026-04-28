@@ -49,7 +49,8 @@ public class dll {
         node.prev = last;
     }
 
-    public Node find(int value) {
+    public Node find(int value)
+    {
         Node node = head;
         while (node != null) {
             if (node.val == value) {
