@@ -279,12 +279,12 @@ public class LL {
     }
 
     private void reverseRec(Node node) {
-        if (node == tail) {
+        if (node == tail) { // iska mtlb pointer last pohoch gaya
             head = tail;
             return;
         }
 
-        reverseRec(node.next);
+        reverseRec(node.next); //pointer wapas ghuma do
         tail.next = node;
         tail = node;
         tail.next = null;
