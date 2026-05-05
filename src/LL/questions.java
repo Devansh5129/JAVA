@@ -1,3 +1,5 @@
+import impQ.ListNode;
+
 ////package LL;
 ////// leetcode -- delete duplicates...
 ////public class questions {
@@ -65,3 +67,42 @@
 //
 //    }
 //}
+
+//leetcode - reverse ll 2
+public ListNode reverseBetween(ListNode head, int left, int right) {
+    if (right==left){
+        return head;
+    }
+    ListNode curr = head;
+    ListNode prev = null;
+    //just left ke phle pohoche
+    for ( int i=0; i<left-1 && curr!=null; i++){
+        prev=curr;
+        curr=curr.next;
+    }
+    //1 ko last bana diya aur jaha se sublinklist chalu use newend
+    ListNode last = prev;
+    ListNode newEnd = curr; //ye curr new wala hai jo shifted hai
+
+    //ab sub linkedlist ko reverse kar dete
+    ListNode next = curr.next;
+    for( int i=0; i<right-left+1 && curr != null; i++ ){
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+        if (next != null) {
+            next = next.next;
+        }
+
+    }
+    //joining the sub ll to original
+    if(last!=null){
+        last.next=prev;
+
+    }else{
+        head=prev;
+    }
+    newEnd.next=curr;
+    return head;
+
+}
