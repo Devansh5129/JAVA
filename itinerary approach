@@ -1,0 +1,33 @@
+-- The itinerary problem is one of the most important HashMap problems in DSA because it teaches how to think in mappings and relationships. In this problem, we are given flight tickets in the form of source and destination cities such as Bombay → Delhi, Delhi → Goa, Goa → Chennai, and Chennai → Bangalore. Our task is to print the complete journey in the correct order. The first thing to understand is that every ticket naturally represents a mapping, where one city points to another city.
+This makes HashMap the perfect data structure because HashMap stores data in key-value pairs.
+
+
+Here, the source city becomes the key and the destination city becomes the value. So internally the HashMap stores data like
+-- Bombay → Delhi, Delhi → Goa, Goa → Chennai, and Chennai → Bangalore.
+
+
+The biggest challenge in this problem is finding the starting city.
+Once the starting city is found, printing the whole itinerary becomes very easy because we can continuously move from one city to
+the next using the HashMap. To find the starting city, we use the most important observation of the problem: 
+the starting city never appears as a destination. If we carefully look at the destinations in the given tickets, we get Delhi,
+Goa, Chennai, and Bangalore. Now if we compare all source cities with these destinations, we notice that Bombay is the only 
+city that never appears as a destination. Therefore, Bombay must be the starting point of the journey. This single observation is the 
+heart of the entire problem.
+
+
+-- To implement this efficiently, we create another HashMap called the reverse map. 
+In the original map, we store source → destination, but in the reverse map we store destination → source. 
+For example, Delhi → Bombay, Goa → Delhi, Chennai → Goa, and Bangalore → Chennai. After creating this reverse map,
+we traverse all source cities and check which source city is not present in the reverse map. The city missing from the reverse map is
+the starting city because it was never a destination in any ticket. Once we find the start city, we simply begin traversing the journey. 
+
+
+-- Starting from Bombay, we ask the HashMap where Bombay goes, and it returns Delhi. Then we ask where Delhi goes, and it returns Goa. 
+Similarly Goa returns Chennai, and Chennai returns Bangalore. Bangalore has no next destination, so the journey ends there. 
+Hence the final itinerary becomes Bombay → Delhi → Goa → Chennai → Bangalore.
+
+
+-- The complete solution works in linear time complexity O(n), which is very efficient because we traverse the data only a few times.
+More importantly, this problem teaches an extremely valuable DSA intuition: whenever a question contains a relationship like A → B, 
+source → destination, employee → manager, or country → capital, HashMap should immediately come to mind. The itinerary problem
+is not just about coding; it is about learning how to identify mappings, reverse mappings, and traversal patterns using HashMaps.
