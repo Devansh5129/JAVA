@@ -53,17 +53,38 @@ public class hashQue {
         HashMap<String, String> revMap = new HashMap<>();
         // destination -> source
         for (String key : tickets.keySet()) {
+            //key ko value and value ko key will reverse the map....
             revMap.put(tickets.get(key), key);
         }
         // find starting city
         for (String key : tickets.keySet()) {
-
             if (!revMap.containsKey(key)) {
                 return key;
             }
         }
         return null;
     }
+    public static int subarraySum(int num[], int k) {
+
+            HashMap<Integer, Integer> map = new HashMap<>();
+
+            map.put(0, 1);
+
+            int sum = 0;
+            int count = 0;
+
+            for(int i = 0; i < num.length; i++) {
+
+                sum += num[i];
+
+                if(map.containsKey(sum - k)) {
+                    count += map.get(sum - k);
+                }
+                map.put(sum, map.getOrDefault(sum, 0) + 1);
+            }
+            return count;
+        }
+
 
     public static void main(String[] args) {
 
@@ -89,5 +110,10 @@ public class hashQue {
             }
             start = tickets.get(start);
         }
+
+        int num[] = {1,2,3};
+        int k = 3;
+
+        System.out.println(subarraySum(num, k));
     }
 }
