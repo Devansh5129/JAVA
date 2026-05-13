@@ -144,11 +144,21 @@ public class hashQue {
 
         return true;
     }
+    public static boolean containsDuplicate(int [] array){
+        Set<Integer> set=new HashSet<>();
+        for(int num:array){
+            if(set.contains(num)){
+                return true;
+            }
+            set.add(num);
+        }
+        return false;
+    }
 
     public static void main(String[] args) {
 
         int nums[] = {1, 3, 2, 5, 1, 3, 1, 5, 1};
-
+        int array[]={1,2,3,4};
         int arr1[] = {1, 2, 3, 4, 6, 5};
         int arr2[] = {4, 5, 1};
 
@@ -164,7 +174,6 @@ public class hashQue {
 
         // Itinerary
         HashMap<String, String> tickets = new HashMap<>();
-
         tickets.put("Chennai", "Bangalore");
         tickets.put("Bombay", "Delhi");
         tickets.put("Goa", "Chennai");
@@ -173,9 +182,7 @@ public class hashQue {
         String start = getStart(tickets);
 
         System.out.print("Itinerary = ");
-
         while (start != null) {
-
             System.out.print(start);
 
             if (tickets.get(start) != null) {
@@ -198,5 +205,6 @@ public class hashQue {
         String s = "dog cat cat dog";
 
         System.out.println("Word Pattern = " + wordPattern(pattern, s));
+        System.out.println(containsDuplicate(array));
     }
 }
