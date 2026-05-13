@@ -154,6 +154,20 @@ public class hashQue {
         }
         return false;
     }
+    public static int singleNumber(int[] arri) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        // frequency count
+        for(int num : arri) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        // find single number
+        for(int num : arri) {
+            if(map.get(num) == 1) {
+                return num;
+            }
+        }
+        return -1;
+    }
 
     public static void main(String[] args) {
 
@@ -161,6 +175,7 @@ public class hashQue {
         int array[]={1,2,3,4};
         int arr1[] = {1, 2, 3, 4, 6, 5};
         int arr2[] = {4, 5, 1};
+        int arri[]={4,1,2,1,2};
 
         // Union
         System.out.println("Union = " + union(arr1, arr2));
@@ -206,5 +221,6 @@ public class hashQue {
 
         System.out.println("Word Pattern = " + wordPattern(pattern, s));
         System.out.println(containsDuplicate(array));
+        System.out.println(singleNumber(arri));
     }
 }
