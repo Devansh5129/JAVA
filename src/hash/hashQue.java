@@ -168,7 +168,31 @@ public class hashQue {
         }
         return -1;
     }
+    public static int[] commonElements(int[] N1, int[] N2) {
+        //one approach is using java inbuilt function which is set1.retainAll(set2) which results the common values and
+        //these values could be added in any of the array...
 
+        HashMap<Integer, Integer> map = new HashMap<>();
+        ArrayList<Integer> ans = new ArrayList<>();
+        // store elements of first array
+        for(int n : N1) {
+            map.put(n, 1);
+        }
+        // check common elements
+        for(int n : N2) {
+            if (map.containsKey(n) && map.get(n) == 1) {
+                ans.add(n);
+                // avoid duplicates
+                map.put(n, 0);
+            }
+        }
+        // convert ArrayList to array
+        int[] res = new int[ans.size()];
+        for(int i = 0; i < ans.size(); i++) {
+            res[i] = ans.get(i);
+        }
+        return res;
+    }
     public static void main(String[] args) {
 
         int nums[] = {1, 3, 2, 5, 1, 3, 1, 5, 1};
@@ -176,6 +200,8 @@ public class hashQue {
         int arr1[] = {1, 2, 3, 4, 6, 5};
         int arr2[] = {4, 5, 1};
         int arri[]={4,1,2,1,2};
+        int N1[]={4,9,5};
+        int N2[]={9,4,8};
 
         // Union
         System.out.println("Union = " + union(arr1, arr2));
@@ -222,5 +248,6 @@ public class hashQue {
         System.out.println("Word Pattern = " + wordPattern(pattern, s));
         System.out.println(containsDuplicate(array));
         System.out.println(singleNumber(arri));
+        System.out.println(Arrays.toString(commonElements(N1, N2)));
     }
 }
