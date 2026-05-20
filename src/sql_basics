@@ -1,0 +1,95 @@
+--> leetcode questions...
+-->Problem 1068
+Return:
+product_name
+year
+price
+First Think Logically
+From which table do we get:
+year ?
+→ Sales
+From which table do we get:
+product_name ?
+→ Product
+So:
+✅ We need BOTH tables.
+That means:
+✅ JOIN required.
+
+-->Query
+SELECT p.product_name,
+s.year,
+s.price
+FROM Sales s
+INNER JOIN Product p
+ON s.product_id = p.product_id;
+
+--> Problem 1378
+Query
+SELECT eu.unique_id,
+e.name
+FROM Employees e
+LEFT JOIN EmployeeUNI eu
+ON e.id = eu.id;
+
+--> Problem 577
+Query
+SELECT e.name,
+b.bonus
+FROM Employee e
+LEFT JOIN Bonus b
+ON e.empId = b.empId
+WHERE b.bonus < 1000
+OR b.bonus IS NULL;
+
+--> Problem 184
+Query
+SELECT d.name AS Department,
+e.name AS Employee,
+e.salary
+FROM Employee e
+JOIN Department d
+ON e.departmentId = d.id
+WHERE (e.departmentId, e.salary) IN (
+    SELECT departmentId,
+    MAX(salary)
+    FROM Employee
+    GROUP BY departmentId
+);
+
+--> Problem - Second highest salary
+SELECT MAX(salary)
+FROM employees
+WHERE salary < (
+    SELECT MAX(salary)
+    FROM employees
+);
+
+
+--> Problem
+  -Find cities having:
+             more than 3 students
+             average marks > 70
+             Answer
+             SELECT city,
+             COUNT(*) AS total_students,
+             AVG(marks) AS average_marks
+             FROM students
+             GROUP BY city
+             HAVING COUNT(*) > 3
+             AND AVG(marks) > 70;
+
+             Find departments where:
+
+             total salary > 500000
+             average salary > 60000
+             Answer
+             SELECT department,
+             SUM(salary) AS total_salary,
+             AVG(salary) AS avg_salary
+             FROM employees
+             GROUP BY department
+             HAVING SUM(salary) > 500000
+             AND AVG(salary) > 60000;
+
+
