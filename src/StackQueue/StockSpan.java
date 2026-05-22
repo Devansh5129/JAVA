@@ -1,4 +1,4 @@
-package impQ;
+package StackQueue;
 import java.util.*;
 public class StockSpan {
     public static void main(String[] args) {
@@ -10,7 +10,7 @@ public class StockSpan {
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < price.length; i++) {
             // remove smaller or equal elements
-            while (!stack.isEmpty() && price[stack.peek()] <= price[i]) {
+            while (!stack.isEmpty() && price[stack.peek()] <= price[i]){
                 stack.pop();
             }
             // if no greater element on left
