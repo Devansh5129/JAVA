@@ -1,6 +1,24 @@
 package impQ;
 import java.util.*;
 class MoveZeroes {
+    //brute
+        public void moveZeroes(int[] nums) {
+            int n = nums.length;
+            int[] temp = new int[n];
+            int j = 0;
+            // store non-zero elements
+            for(int i = 0; i < n; i++) {
+                if(nums[i] != 0) {
+                    temp[j] = nums[i];
+                    j++;
+                }
+            }
+            // copy back
+            for(int i = 0; i < n; i++) {
+                nums[i] = temp[i];
+            }
+        }
+    }
     // optimal solution (2 pointer swapping)
     public static void main(String[] args) {
         int[] nums = {0,1,0,3,12};
@@ -38,12 +56,15 @@ class MoveZeroes {
 //To move all zeros to the end while maintaining order,
 // the main idea is to shift all non-zero elements to the front of
 // the array and allow zeros to naturally move to the end.
+
 // The brute force approach uses an extra array to store non-zero elements
 // and then fills the remaining positions with zeros,
 // but this uses extra space.
+
 // A better approach directly places non-zero elements at the
 // beginning of the original array and then fills the remaining
 // positions with zeros, reducing space complexity.
+
 // The optimal approach uses a two-pointer technique where
 // one pointer scans the array and the other pointer tracks
 // the position for the next non-zero element, swapping elements
