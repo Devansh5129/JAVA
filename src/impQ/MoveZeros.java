@@ -18,7 +18,7 @@ class MoveZeroes {
                 nums[i] = temp[i];
             }
         }
-    }
+
     // optimal solution (2 pointer swapping)
     public static void main(String[] args) {
         int[] nums = {0,1,0,3,12};
