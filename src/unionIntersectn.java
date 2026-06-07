@@ -1,12 +1,14 @@
 import java.util.*;
 //brute-union
-class unionintersectn{
+class unionintersectn {
     static void main(String[] args) {
-        int [] arr1={1,2,3,4,5};
-        int [] arr2={3,4,5,6,7,8};
-        System.out.println(union(arr1,arr2));
-        System.out.println(intersection(arr1,arr2));
+        int[] arr1 = {1, 2, 3, 4, 5};
+        int[] arr2 = {3, 4, 5, 6, 7, 8};
+        System.out.println(union(arr1, arr2));
+        System.out.println(intersection(arr1, arr2));
+        System.out.println("2 pointers wala:" +intersection1(arr1, arr2));
     }
+
     public static ArrayList<Integer> union(int[] arr1, int[] arr2) {
         HashSet<Integer> set = new HashSet<>();
         for (int i = 0; i < arr1.length; i++) {
@@ -17,18 +19,39 @@ class unionintersectn{
         }
         return new ArrayList<>(set);
     }
-        public static ArrayList<Integer> intersection(int[] arr1, int[] arr2) {
-            ArrayList<Integer> ans = new ArrayList<>();
-            boolean[] visited = new boolean[arr2.length];
-            for(int i = 0; i < arr1.length; i++) {
-                for(int j = 0; j < arr2.length; j++) {
-                    if(arr1[i] == arr2[j] && !visited[j]) {
-                        ans.add(arr1[i]);
-                        visited[j] = true;
-                        break;
-                    }
+
+    //brute- intersection
+    public static ArrayList<Integer> intersection(int[] arr1, int[] arr2) {
+        ArrayList<Integer> ans = new ArrayList<>();
+        boolean[] visited = new boolean[arr2.length];
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr2.length; j++) {
+                if (arr1[i] == arr2[j] && !visited[j]) {
+                    ans.add(arr1[i]);
+                    visited[j] = true;
+                    break;
                 }
             }
-            return ans;
         }
+        return ans;
     }
+// intersection 2 pointers- Time Complexity = O(n + m) , constant space complexity O(N)...
+    public static ArrayList<Integer>intersection1(int[] arr1, int [] arr2){
+        ArrayList<Integer>ans=new ArrayList<>();
+        int i=0; int j=0;
+        while(i < arr1.length && j < arr2.length) {
+            if(arr1[i]<arr2[j]){
+                i++;
+            }
+            else if(arr2[j] < arr1[i]) {
+                j++;
+            }
+            else {
+                ans.add(arr1[i]);
+                i++;
+                j++;
+            }
+        }
+        return ans;
+    }
+}
