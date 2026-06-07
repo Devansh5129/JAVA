@@ -37,6 +37,25 @@ class rotateArray {
         }
         return result;
     }
+    //less-complexity..interview time - O(2n)-not that much better but no extra space so space - O(1)...
+
+        public void rotatey(int[] nums, int k) {
+            int n = nums.length;
+            k = k % n;
+            reverse(nums, 0, n - 1);      // step 1
+            reverse(nums, 0, k - 1);      // step 2
+            reverse(nums, k, n - 1);      // step 3
+        }
+        public void reverse(int[] arr, int start, int end) {
+            while (start < end) {
+                int temp = arr[start];
+                arr[start] = arr[end];
+                arr[end] = temp;
+                start++;
+                end--;
+            }
+        }
+
 
     public static void main(String[] args) {
         int[] arr1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
