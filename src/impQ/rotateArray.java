@@ -12,7 +12,7 @@ class rotateArray {
         return result;
     }
 
-    // In-place Left Rotate by 1 (Fixing your brute method)
+    // In-place Left Rotate by 1 (brute method)
     public static int[] rotate(int[] arr) {
         if (arr == null || arr.length <= 1) {
             return arr;
