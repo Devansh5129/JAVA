@@ -1,4 +1,5 @@
 package impQ;
+//sliding wind , 2 pointer
 import java.util.*;
 //brute--hashset..O(N^2)
 public class maxSubString {
@@ -14,7 +15,6 @@ public class maxSubString {
         int n = s.length();
         for(int i =0; i<n; i++){
             HashSet <Character> set= new HashSet<>();
-
             for(int j=0; j<n; j++){
                 char ch = s.charAt(j);
                 if(set.contains(ch)){
@@ -22,9 +22,7 @@ public class maxSubString {
                 }
                 set.add(ch);
                 maxLen=Math.max(maxLen,j-i+1);
-
             }
-
         }
         return maxLen;
     }
