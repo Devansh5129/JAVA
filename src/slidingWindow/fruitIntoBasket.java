@@ -1,4 +1,4 @@
-package impQ;
+package slidingWindow;
 //brute force approach -- nested loop giving time complexity O(N^2)...
 import java.util.*;
 public class fruitIntoBasket {
@@ -28,13 +28,9 @@ public class fruitIntoBasket {
         int left = 0;
         int maxLen = 0;
         for(int right = 0; right < fruits.length; right++) {
-            map.put(fruits[right],
-                    map.getOrDefault(fruits[right],0)+1);
-
+            map.put(fruits[right], map.getOrDefault(fruits[right],0)+1);
             while(map.size() > 2) {
-
-                map.put(fruits[left],
-                        map.get(fruits[left])-1);
+                map.put(fruits[left],map.get(fruits[left])-1);
                 if(map.get(fruits[left]) == 0) {
                     map.remove(fruits[left]);
                 }
