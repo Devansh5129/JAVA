@@ -1,9 +1,11 @@
 package impQ;
-
+import java.util.*;
 public class subarrayEqualSum {
    public static void main(String[] args) {
         int[] arr = {1, 2, 3, 1, 1, 1, 1, 4, 2, 3};
         int k = 3;
+        int [] array ={15,-2,2,-8,1,7,10,23};
+       System.out.println("subarray sum equals to zero : " + subArraySumZeroLength(array));
 
         System.out.println(sum(arr,k));
         System.out.println(longestSubarrayWithSumK(arr,k));
@@ -55,5 +57,21 @@ public class subarrayEqualSum {
             }
         }
         return maxLen;
+    }
+    //returning the maximum sized subarray whose sum is equals to 0
+    public static int subArraySumZeroLength(int [] array){
+       Map<Integer, Integer>map = new HashMap<>();
+       map.put(0,-1);
+       int sum=0;
+       int maxLen=0;
+       for (int i=0;i<array.length; i++){
+           sum +=array[i];
+           if(map.containsKey(sum)){
+               maxLen=Math.max(maxLen, i-map.get(sum));
+           }else{
+               map.put(sum,i);
+           }
+       }
+       return maxLen;
     }
 }
